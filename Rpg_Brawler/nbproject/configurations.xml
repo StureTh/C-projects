@@ -5,6 +5,8 @@
                    displayName="Header Files"
                    projectFiles="true">
       <itemPath>Weapon.h</itemPath>
+      <itemPath>defense.h</itemPath>
+      <itemPath>player.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ResourceFiles"
                    displayName="Resource Files"
@@ -13,9 +15,10 @@
     <logicalFolder name="SourceFiles"
                    displayName="Source Files"
                    projectFiles="true">
-      <itemPath>Player.c</itemPath>
       <itemPath>Weapon.c</itemPath>
+      <itemPath>defense.c</itemPath>
       <itemPath>main.c</itemPath>
+      <itemPath>player.c</itemPath>
     </logicalFolder>
     <logicalFolder name="TestFiles"
                    displayName="Test Files"
@@ -42,13 +45,19 @@
           <standard>10</standard>
         </cTool>
       </compileType>
-      <item path="Player.c" ex="false" tool="0" flavor2="0">
-      </item>
       <item path="Weapon.c" ex="false" tool="0" flavor2="0">
       </item>
       <item path="Weapon.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="defense.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="defense.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="main.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="player.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="player.h" ex="false" tool="3" flavor2="0">
       </item>
     </conf>
     <conf name="Release" type="1">
@@ -72,13 +81,19 @@
           <developmentMode>5</developmentMode>
         </asmTool>
       </compileType>
-      <item path="Player.c" ex="false" tool="0" flavor2="0">
-      </item>
       <item path="Weapon.c" ex="false" tool="0" flavor2="0">
       </item>
       <item path="Weapon.h" ex="false" tool="3" flavor2="0">
       </item>
+      <item path="defense.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="defense.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="main.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="player.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="player.h" ex="false" tool="3" flavor2="0">
       </item>
     </conf>
   </confs>
