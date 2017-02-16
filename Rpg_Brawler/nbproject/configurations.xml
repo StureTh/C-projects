@@ -4,6 +4,7 @@
     <logicalFolder name="HeaderFiles"
                    displayName="Header Files"
                    projectFiles="true">
+      <itemPath>Weapon.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ResourceFiles"
                    displayName="Resource Files"
@@ -45,6 +46,8 @@
       </item>
       <item path="Weapon.c" ex="false" tool="0" flavor2="0">
       </item>
+      <item path="Weapon.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="main.c" ex="false" tool="0" flavor2="0">
       </item>
     </conf>
@@ -72,6 +75,8 @@
       <item path="Player.c" ex="false" tool="0" flavor2="0">
       </item>
       <item path="Weapon.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="Weapon.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="main.c" ex="false" tool="0" flavor2="0">
       </item>
