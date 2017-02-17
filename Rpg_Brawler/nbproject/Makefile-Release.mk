@@ -38,7 +38,8 @@ OBJECTFILES= \
 	${OBJECTDIR}/Weapon.o \
 	${OBJECTDIR}/defense.o \
 	${OBJECTDIR}/main.o \
-	${OBJECTDIR}/player.o
+	${OBJECTDIR}/player.o \
+	${OBJECTDIR}/shop.o
 
 
 # C Compiler Flags
@@ -84,6 +85,11 @@ ${OBJECTDIR}/player.o: player.c
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.c) -O2 -std=c11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/player.o player.c
+
+${OBJECTDIR}/shop.o: shop.c
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.c) -O2 -std=c11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/shop.o shop.c
 
 # Subprojects
 .build-subprojects:

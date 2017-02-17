@@ -1,4 +1,5 @@
 #include "player.h"
+#include "defense.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -10,6 +11,7 @@ static player_t createPlayer(char *name)
     strcpy(new_player.name, name);
     new_player.hp = 150;
     new_player.coin_purse = 2000;
+    new_player.defense;
 
     return new_player;
 }

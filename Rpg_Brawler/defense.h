@@ -13,6 +13,9 @@ typedef struct defense{
 
 }defense_t;
 
+defense_t createDefenseTypes(char *name,int price,int defense);
+
+
 #ifdef __cplusplus
 extern "C" {
 #endif

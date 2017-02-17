@@ -5,29 +5,21 @@
  */
 
 /* 
- * File:   Player.h
+ * File:   shop.h
  * Author: Sture
  *
- * Created on den 16 februari 2017, 16:08
+ * Created on den 17 februari 2017, 13:52
  */
 
-#ifndef PLAYER_H
-#define PLAYER_H
+#ifndef SHOP_H
+#define SHOP_H
 
-
-#include <stdint.h>
-#include <stdbool.h>
+#include "player.h"
 #include "defense.h"
-typedef struct player
-{
-    char name[20];
-    uint8_t hp;
-    uint16_t coin_purse;
-   defense_t *defense;
-    
-} player_t;
+#include <stdbool.h>
 
-player_t PLAYER_initPlayer(void);
+ void populateShopeDefensives(void);
+void SHOP_chooseDefenseItem(player_t *current_player);
 
 #ifdef __cplusplus
 extern "C" {
@@ -40,5 +32,5 @@ extern "C" {
 }
 #endif
 
-#endif /* PLAYER_H */
+#endif /* SHOP_H */
 
