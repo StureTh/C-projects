@@ -14,25 +14,27 @@
 #ifndef PLAYER_H
 #define PLAYER_H
 
+#include "weapon.h"
 
 #include <stdint.h>
 #include <stdbool.h>
 #include "defense.h"
-#include "weapon.h"
 
 
 
 
-typedef struct player
+
+ struct player
 {
     char name[20];
     uint8_t hp;
     uint16_t coin_purse;
-    Weapon_t *weapon;
+    weapon_t *weapon;
    defense_t *defense;
     
-} player_t;
+};
 
+typedef struct player player_t;
 player_t PLAYER_initPlayer(void);
 
 #ifdef __cplusplus

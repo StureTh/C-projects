@@ -37,6 +37,7 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 OBJECTFILES= \
 	${OBJECTDIR}/defense.o \
 	${OBJECTDIR}/enemy.o \
+	${OBJECTDIR}/game.o \
 	${OBJECTDIR}/main.o \
 	${OBJECTDIR}/player.o \
 	${OBJECTDIR}/shop.o \
@@ -76,6 +77,11 @@ ${OBJECTDIR}/enemy.o: enemy.c
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.c) -g -std=c11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/enemy.o enemy.c
+
+${OBJECTDIR}/game.o: game.c
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.c) -g -std=c11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/game.o game.c
 
 ${OBJECTDIR}/main.o: main.c
 	${MKDIR} -p ${OBJECTDIR}
