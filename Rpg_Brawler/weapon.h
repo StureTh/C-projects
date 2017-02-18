@@ -13,6 +13,9 @@
 
 #ifndef WEAPON_H
 #define WEAPON_H
+#include "player.h"
+#include "defense.h"
+#include <stdint.h>
 
 typedef struct weapon
 {
