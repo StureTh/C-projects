@@ -1,7 +1,10 @@
-build/Debug/MinGW-Windows/shop.o: shop.c player.h weapon.h defense.h
+build/Debug/MinGW-Windows/shop.o: shop.c player.h weapon.h defense.h \
+ shop.h
 
 player.h:
 
 weapon.h:
 
 defense.h:
+
+shop.h:

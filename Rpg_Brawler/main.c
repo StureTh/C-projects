@@ -21,9 +21,9 @@ int main(int argc, char** argv)
 
     player = PLAYER_initPlayer();
     populateShopeDefensives();
-    SHOP_chooseDefenseItem(&player);
     populateShopWeapons();
-    SHOP_chooseWeapon(&player);
+    SHOP_shopMenu(&player);
+    
     return (EXIT_SUCCESS);
 }
 
