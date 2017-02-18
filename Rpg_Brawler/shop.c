@@ -3,10 +3,12 @@
 #include <string.h>
 #include <conio.h>
 #include "player.h"
+#include "weapon.h"
 
 
 
 defense_t defense_types[15];
+weapon_t weapon_types[15];
 
 void populateShopeDefensives(void)
 {
@@ -46,6 +48,34 @@ void SHOP_chooseDefenseItem(player_t *current_player)
            "You have %i gold left",
            current_player->name,
            current_player->defense->name,
+           current_player->coin_purse);
+}
+void populateShopWeapons(void)
+{
+    weapon_types[0] = createWeaponTypes("Sloppy-fish", 1000, 10);
+    weapon_types[1] = createWeaponTypes("Great-sword", 500, 40);
+    weapon_types[2] = createWeaponTypes("Double-axe", 600, 45);
+}
+void SHOP_chooseWeapon(player_t *current_player)
+{
+    int i;
+    int shop_choice;
+
+    for(i = 0; i < 3; i++)
+    {
+        printf("%i %s %i %i",
+               i + 1,
+               weapon_types[i].name,
+               weapon_types[i].price,
+               weapon_types[i].dmg);
+    }
+
+    scanf("%d", &shop_choice);
+    current_player->weapon = &weapon_types[shop_choice - 1];
+    current_player->coin_purse -= current_player->weapon->price;
+
+    printf("You have chosen %s as your main weapon. You have %d gold left.\n",
+           current_player->weapon->name,
            current_player->coin_purse);
 }
 

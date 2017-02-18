@@ -6,7 +6,16 @@
 #include <stdint.h>
 #include "player.h"
 
+weapon_t createWeaponTypes(char *name, int16_t price, int8_t dmg)
+{
+    weapon_t weapon_type;
 
+    strcpy(weapon_type.name,name);
+    weapon_type.price = price;
+    weapon_type.dmg = dmg;
+
+    return weapon_type;
+}
 
 int8_t WEAPON_useWeapon(player_t *attacker, player_t *opponent, char *msg)
 {

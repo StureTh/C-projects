@@ -25,13 +25,14 @@
     char name[32];
     int8_t dmg; 
     int8_t accuracy;
+    int16_t price;
     
 };
 
 typedef struct weapon weapon_t;
 typedef struct player player_t;
 
-
+weapon_t createWeaponTypes(char *name, int16_t price, int8_t dmg);
 int8_t WEAPON_useWeapon(player_t *attacker, player_t *opponent, char *msg);
 
 #ifdef __cplusplus

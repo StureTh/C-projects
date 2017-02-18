@@ -20,6 +20,10 @@
 
 void populateShopeDefensives(void);
 void SHOP_chooseDefenseItem(player_t *current_player);
+void populateShopWeapons(void);
+void SHOP_chooseWeapon(player_t *current_player);
+
+
 
 #ifdef __cplusplus
 extern "C" {
