@@ -28,11 +28,44 @@ int8_t GAME_startArena(void)
     
 }
 
-// static void Stage1_start()
-//{
- //   defense_t enemy1_defense;
- //   stage1_enemies[0] = create_enemy("SwampMonster", 200, enemy1_defense, 2000);
+static void battle_loop(enemy_t enemies[])
+{
+    int i;
+    int enemy_count = sizeof(enemies) / sizeof(enemies[0]);
+    
+   for(i = 0; i <enemy_count; i++ ) 
+   {
+       int reward;
+       reward = battle_start(enemies[i]);
+   }
+}
+
+ int battle_start(enemy_t enemy)
+{
+    printf("battle");
+    getche();
+}
+
+ static void Stage1_start()
+{
+   defense_t enemy1_defense;
+   
+   enemy_t enemy1 = create_enemy("SwampMonster", 100, enemy1_defense, 2000);
+   
+   enemy1.base.weapon->dmg = (int8_t)10;
+   
+   stage1_enemies[0] = enemy1;
+   
+   battle_loop(stage1_enemies);
+   
+   
+   
+   
+   
+
+    
+      
     
     
-//}
+}
  

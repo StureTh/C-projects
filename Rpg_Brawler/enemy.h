@@ -21,7 +21,7 @@ typedef struct enemy
 
 } enemy_t;
 
-static enemy_t create_enemy(char *name, int hp, defense_t def, int gold_reward);
+ enemy_t create_enemy(char *name, int hp, defense_t def, int gold_reward);
 #ifdef __cplusplus
 extern "C"
 {

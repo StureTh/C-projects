@@ -5,7 +5,7 @@
 #include <string.h>
 #include <conio.h>
 
-static enemy_t create_enemy(char *name, int hp, defense_t def, int gold_reward)
+enemy_t create_enemy(char *name, int hp, defense_t def, int gold_reward)
 {
     enemy_t enemy;
 
