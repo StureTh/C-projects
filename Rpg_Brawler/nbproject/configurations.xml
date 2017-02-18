@@ -4,10 +4,10 @@
     <logicalFolder name="HeaderFiles"
                    displayName="Header Files"
                    projectFiles="true">
-      <itemPath>Weapon.h</itemPath>
       <itemPath>defense.h</itemPath>
       <itemPath>player.h</itemPath>
       <itemPath>shop.h</itemPath>
+      <itemPath>weapon.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ResourceFiles"
                    displayName="Resource Files"
@@ -16,11 +16,11 @@
     <logicalFolder name="SourceFiles"
                    displayName="Source Files"
                    projectFiles="true">
-      <itemPath>Weapon.c</itemPath>
       <itemPath>defense.c</itemPath>
       <itemPath>main.c</itemPath>
       <itemPath>player.c</itemPath>
       <itemPath>shop.c</itemPath>
+      <itemPath>weapon.c</itemPath>
     </logicalFolder>
     <logicalFolder name="TestFiles"
                    displayName="Test Files"
@@ -47,10 +47,6 @@
           <standard>10</standard>
         </cTool>
       </compileType>
-      <item path="Weapon.c" ex="false" tool="0" flavor2="0">
-      </item>
-      <item path="Weapon.h" ex="false" tool="3" flavor2="0">
-      </item>
       <item path="defense.c" ex="false" tool="0" flavor2="0">
       </item>
       <item path="defense.h" ex="false" tool="3" flavor2="0">
@@ -64,6 +60,10 @@
       <item path="shop.c" ex="false" tool="0" flavor2="0">
       </item>
       <item path="shop.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="weapon.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="weapon.h" ex="false" tool="3" flavor2="0">
       </item>
     </conf>
     <conf name="Release" type="1">
@@ -87,10 +87,6 @@
           <developmentMode>5</developmentMode>
         </asmTool>
       </compileType>
-      <item path="Weapon.c" ex="false" tool="0" flavor2="0">
-      </item>
-      <item path="Weapon.h" ex="false" tool="3" flavor2="0">
-      </item>
       <item path="defense.c" ex="false" tool="0" flavor2="0">
       </item>
       <item path="defense.h" ex="false" tool="3" flavor2="0">
@@ -104,6 +100,10 @@
       <item path="shop.c" ex="false" tool="0" flavor2="0">
       </item>
       <item path="shop.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="weapon.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="weapon.h" ex="false" tool="3" flavor2="0">
       </item>
     </conf>
   </confs>

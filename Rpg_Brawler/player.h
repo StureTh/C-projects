@@ -18,11 +18,17 @@
 #include <stdint.h>
 #include <stdbool.h>
 #include "defense.h"
+#include "weapon.h"
+
+
+
+
 typedef struct player
 {
     char name[20];
     uint8_t hp;
     uint16_t coin_purse;
+    Weapon_t *weapon;
    defense_t *defense;
     
 } player_t;

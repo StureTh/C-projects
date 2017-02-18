@@ -18,7 +18,7 @@
 #include "defense.h"
 #include <stdbool.h>
 
- void populateShopeDefensives(void);
+void populateShopeDefensives(void);
 void SHOP_chooseDefenseItem(player_t *current_player);
 
 #ifdef __cplusplus

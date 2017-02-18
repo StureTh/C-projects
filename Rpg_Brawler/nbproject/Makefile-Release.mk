@@ -35,11 +35,11 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 
 # Object Files
 OBJECTFILES= \
-	${OBJECTDIR}/Weapon.o \
 	${OBJECTDIR}/defense.o \
 	${OBJECTDIR}/main.o \
 	${OBJECTDIR}/player.o \
-	${OBJECTDIR}/shop.o
+	${OBJECTDIR}/shop.o \
+	${OBJECTDIR}/weapon.o
 
 
 # C Compiler Flags
@@ -66,11 +66,6 @@ ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/rpg_brawler.exe: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
 	${LINK.c} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/rpg_brawler ${OBJECTFILES} ${LDLIBSOPTIONS}
 
-${OBJECTDIR}/Weapon.o: Weapon.c
-	${MKDIR} -p ${OBJECTDIR}
-	${RM} "$@.d"
-	$(COMPILE.c) -O2 -std=c11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Weapon.o Weapon.c
-
 ${OBJECTDIR}/defense.o: defense.c
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
@@ -90,6 +85,11 @@ ${OBJECTDIR}/shop.o: shop.c
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.c) -O2 -std=c11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/shop.o shop.c
+
+${OBJECTDIR}/weapon.o: weapon.c
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.c) -O2 -std=c11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/weapon.o weapon.c
 
 # Subprojects
 .build-subprojects:
