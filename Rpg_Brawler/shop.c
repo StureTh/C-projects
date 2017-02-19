@@ -40,10 +40,17 @@ void SHOP_chooseDefenseItem(player_t *current_player)
     printf("loop done");
 
     scanf("%i", &shop_choice);
+    if(defense_types[shop_choice - 1].price > current_player->coin_purse)
+    {
+        printf("You cannot afford %s", defense_types[shop_choice - 1].name);
+    }
+    else
+    {
+        current_player->defense = &defense_types[shop_choice - 1];
+        current_player->coin_purse -= current_player->defense->price;
+    }
 
 
-    current_player->defense = &defense_types[shop_choice - 1];
-    current_player->coin_purse -= current_player->defense->price;
 
     printf("Get ready %s you chose %s as you main defense."
            "You have %i gold left\n",
@@ -73,9 +80,18 @@ void SHOP_chooseWeapon(player_t *current_player)
                weapon_types[i].dmg);
     }
 
+
     scanf("%d", &shop_choice);
-    current_player->weapon = &weapon_types[shop_choice - 1];
-    current_player->coin_purse -= current_player->weapon->price;
+    if(weapon_types[shop_choice - 1].price > current_player->coin_purse)
+    {
+        printf("You don afford %s", weapon_types[shop_choice - 1].name);
+    }
+    else
+    {
+        current_player->weapon = &weapon_types[shop_choice - 1];
+        current_player->coin_purse -= current_player->weapon->price;
+    }
+
 
     printf("You have chosen %s as your main weapon. You have %d gold left.\n",
            current_player->weapon->name,

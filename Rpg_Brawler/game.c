@@ -36,7 +36,7 @@ static void battle_loop(enemy_t *enemies)
 
  int battle_start(enemy_t enemy)
 {
-    printf("\n----------battle------------\n");
+    printf("\n----------sture e en bajskorv!------------\n");
     printf("Player %s", arena_player.name);
     printf("\nEnemy %s hp: %i! dmg %i\n", enemy.base.name, enemy.base.hp, enemy.base.weapon->dmg);
     getche();
