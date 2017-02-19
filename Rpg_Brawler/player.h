@@ -27,7 +27,7 @@
  struct player
 {
     char name[20];
-    uint8_t hp;
+    int16_t hp;
     uint16_t coin_purse;
     weapon_t *weapon;
    defense_t *defense;

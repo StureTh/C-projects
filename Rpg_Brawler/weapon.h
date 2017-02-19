@@ -30,10 +30,10 @@
 };
 
 typedef struct weapon weapon_t;
-typedef struct player player_t;
+typedef struct defense defense_t;
 
 weapon_t createWeaponTypes(char *name, int16_t price, int8_t dmg);
-int8_t WEAPON_useWeapon(player_t *attacker, player_t *opponent, char *msg);
+int8_t WEAPON_useWeapon(weapon_t *attk_wpn, defense_t *opponent_deff);
 
 #ifdef __cplusplus
 extern "C" {

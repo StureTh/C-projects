@@ -15,11 +15,12 @@
 #define ENEMY_H
 
 #include "weapon.h"
+#include "player.h"
 
 
 typedef struct enemy
 {
-    player_t base;
+    struct player base;
     uint16_t gold_reward;
     weapon_t enemy_weapon;
     defense_t enemy_defense;

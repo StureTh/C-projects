@@ -4,6 +4,7 @@
 #include <stdbool.h>
 #include <conio.h>
 #include <stdint.h>
+#include <math.h>
 #include "player.h"
 
 weapon_t createWeaponTypes(char *name, int16_t price, int8_t dmg)
@@ -17,19 +18,25 @@ weapon_t createWeaponTypes(char *name, int16_t price, int8_t dmg)
     return weapon_type;
 }
 
-int8_t WEAPON_useWeapon(player_t *attacker, player_t *opponent, char *msg)
+int8_t WEAPON_useWeapon(weapon_t *attk_wpn, defense_t *opponent_deff)
 {
     int8_t dmg_reduction;
     int8_t dmg_dealt;
-    int8_t total_dmg_dealt;
+   float_t total_dmg_dealt =0;
     
-    dmg_dealt = attacker->weapon->dmg;
-    dmg_reduction = opponent->defense->defense;  
+   
+    dmg_dealt = attk_wpn->dmg;
+    dmg_reduction = (100 - opponent_deff->defense);  
+
     
-    total_dmg_dealt = (dmg_dealt - dmg_reduction);
+    total_dmg_dealt = dmg_dealt * dmg_reduction;
+    total_dmg_dealt = total_dmg_dealt /100;
     
-    char msg_output[] = "You hit %s with your %s, for %i dmg";
-    strcpy(msg, msg_output);
+    if(total_dmg_dealt < 0)
+      {
+        total_dmg_dealt = 0;
+      }
+    
     
     return total_dmg_dealt;
        
