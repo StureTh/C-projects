@@ -14,14 +14,21 @@
 #ifndef ENEMY_H
 #define ENEMY_H
 
+#include "weapon.h"
+
+
 typedef struct enemy
 {
     player_t base;
     uint16_t gold_reward;
+    weapon_t enemy_weapon;
+    defense_t enemy_defense;
 
 } enemy_t;
 
  enemy_t create_enemy(char *name, int hp, defense_t def, int gold_reward);
+ enemy_t createSwampMonster(int hp, int defense, int dmg);
+
 #ifdef __cplusplus
 extern "C"
 {
