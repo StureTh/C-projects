@@ -15,16 +15,15 @@
 #define PLAYER_H
 
 #include "weapon.h"
-
+#include "defense.h"
 #include <stdint.h>
 #include <stdbool.h>
-#include "defense.h"
 
 
 
 
 
- struct player
+ typedef struct player
 {
     char name[20];
     int16_t hp;
@@ -32,21 +31,12 @@
     weapon_t *weapon;
    defense_t *defense;
     
-};
+}player_t;
 
-typedef struct player player_t;
+//typedef struct player player_t;
 player_t PLAYER_initPlayer(void);
 
-#ifdef __cplusplus
-extern "C" {
-#endif
 
-
-
-
-#ifdef __cplusplus
-}
-#endif
 
 #endif /* PLAYER_H */
 

@@ -14,10 +14,10 @@
 #ifndef WEAPON_H
 #define WEAPON_H
 
-
+#include "player.h"
+#include "defense.h"
 #include <stdio.h>
 #include <stdlib.h>
-#include "player.h"
 #include <stdint.h>
 
  struct weapon
