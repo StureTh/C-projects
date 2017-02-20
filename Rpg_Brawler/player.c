@@ -9,7 +9,7 @@
 static player_t createPlayer(char *name)
 {
     player_t new_player;
-    strcpy(new_player.name, "trashboy");
+    strcpy(new_player.name, name);
     new_player.hp = (int16_t)150;
     new_player.coin_purse = 2000;
     new_player.defense;

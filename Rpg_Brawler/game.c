@@ -2,6 +2,7 @@
 #include "shop.h"
 #include "defense.h"
 #include "enemy.h"
+#include "game.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -13,6 +14,7 @@
 int stage_count = 0;
 int stage_index = 0;
 int enemy_count;
+bool end = false;
 player_t arena_player;
 enemy_t stage_enemies[100];
 enemy_t(*currentstage)[];
@@ -37,7 +39,7 @@ void initStage3()
 {
     enemy_count = 1;
     stage_index = 3;
-    stage_enemies[3] = createBeastman(110,30,50);
+    stage_enemies[3] = createBeastman(110, 30, 50);
 }
 
 void setStage(int8_t stage_NR)
@@ -175,25 +177,54 @@ void enemyAction(enemy_t *enemy)
 
 }
 
+void battleMenu(void)
+{
+    int choise = 0;
+
+
+    printf("To continue press 1:\n To visit shop press 2:\n"
+           "To quit game press 3:\n");
+    scanf("%d", &choise);
+    switch(choise)
+    {
+        case 1:
+            battle_loop();
+            break;
+        case 2:
+            SHOP_shopMenu(&arena_player);
+            break;
+        case 3:
+            end = true;
+            return;
+    }
+
+}
+
 int8_t GAME_startArena(void)
 {
     char continue_arena;
-    bool win = false;
+
     arena_player = PLAYER_initPlayer();
-    SHOP_shopMenu(&arena_player);
-    while(!win || continue_arena == 'n' || continue_arena == 'N')
+
+    while(!end)
     {
+        battleMenu();
+
         stage_count++;
         setStage(stage_count);
         printf("hp: %i name: %s",
                stage_enemies[0].base.hp,
                stage_enemies[0].base.name);
+
         printf("Get ready for stage %i", stage_count);
+
         getche();
-        battle_loop();
-        printf("Continue or chicken out?: ");
-        scanf("%c", &continue_arena);
+
+
+
     }
+
+
     // SHOP_visitShop(arena_player); 
 
 

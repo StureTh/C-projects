@@ -1,5 +1,5 @@
 build/Debug/MinGW-Windows/game.o: game.c player.h weapon.h defense.h \
- shop.h enemy.h
+ shop.h enemy.h game.h
 
 player.h:
 
@@ -10,3 +10,5 @@ defense.h:
 shop.h:
 
 enemy.h:
+
+game.h:

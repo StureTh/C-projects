@@ -16,6 +16,7 @@
 
 
 int8_t GAME_startArena(void);
+
 #ifdef __cplusplus
 extern "C"
 {
