@@ -1,24 +1,11 @@
 #include "enemy.h"
-
 #include "images.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <conio.h>
 
-enemy_t create_enemy(char *name, int hp, defense_t def, int gold_reward)
-{
-  enemy_t enemy;
 
-  strcpy(enemy.base.name, name);
-  enemy.base.hp = hp;
-  enemy.enemy_defense.defense = def.defense;
-  enemy.gold_reward = gold_reward;
-
-  return enemy;
-
-
-}
 
 enemy_t createSwampMonster(int hp, int defense, int dmg)
 {

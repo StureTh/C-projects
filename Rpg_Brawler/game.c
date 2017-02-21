@@ -1,12 +1,8 @@
 #include "game.h"
-
-
 #include "shop.h"
 #include "enemy.h"
 #include "images.h"
 #include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
 #include <stdbool.h>
 #include <conio.h>
 
@@ -237,8 +233,8 @@ void battleMenu(void)
 int8_t GAME_startArena(void)
 {
   char continue_arena;
-
-  arena_player = PLAYER_initPlayer();
+  SHOP_init();
+  arena_player = PLAYER_init();
 
   while(!end)
     {

@@ -3,7 +3,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <conio.h>
+
 
 
 static player_t createPlayer(char *name)
@@ -20,7 +20,7 @@ static player_t createPlayer(char *name)
     return new_player;
 }
 
-player_t PLAYER_initPlayer(void)
+player_t PLAYER_init(void)
 {
     player_t player;
     char name[15];

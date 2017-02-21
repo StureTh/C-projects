@@ -27,7 +27,7 @@ typedef struct enemy
 
 } enemy_t;
 
- enemy_t create_enemy(char *name, int hp, defense_t def, int gold_reward);
+
  enemy_t createSwampMonster(int hp, int defense, int dmg);
  enemy_t createCupcakeThief(int hp, int defense, int dmg);
  enemy_t createBeastman(int hp, int defense, int dmg);

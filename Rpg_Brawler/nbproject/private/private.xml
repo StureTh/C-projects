@@ -7,10 +7,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Thuren/Documents/NetBeansProjects/C-projects/Rpg_Brawler/weapon.c</file>
-            <file>file:/C:/Users/Thuren/Documents/NetBeansProjects/C-projects/Rpg_Brawler/player.h</file>
-            <file>file:/C:/Users/Thuren/Documents/NetBeansProjects/C-projects/Rpg_Brawler/weapon.h</file>
-            <file>file:/C:/Users/Thuren/Documents/NetBeansProjects/C-projects/Rpg_Brawler/player.c</file>
+            <file>file:/C:/Users/LIA2017/Documents/NetBeansProjects/C-projects/Rpg_Brawler/player.c</file>
+            <file>file:/C:/Users/LIA2017/Documents/NetBeansProjects/C-projects/Rpg_Brawler/enemy.c</file>
+            <file>file:/C:/Users/LIA2017/Documents/NetBeansProjects/C-projects/Rpg_Brawler/player.h</file>
+            <file>file:/C:/Users/LIA2017/Documents/NetBeansProjects/C-projects/Rpg_Brawler/weapon.h</file>
+            <file>file:/C:/Users/LIA2017/Documents/NetBeansProjects/C-projects/Rpg_Brawler/enemy.h</file>
         </group>
     </open-files>
 </project-private>

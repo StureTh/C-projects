@@ -36,7 +36,7 @@
 }player_t;
 
 //typedef struct player player_t;
-player_t PLAYER_initPlayer(void);
+player_t PLAYER_init(void);
 
 
 

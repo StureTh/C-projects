@@ -17,9 +17,9 @@
 #include "enemy.h"
 
 
-void populateShopeDefensives(void);
+
+void SHOP_init(void);
 void SHOP_chooseDefenseItem(player_t *current_player);
-void populateShopWeapons(void);
 void SHOP_chooseWeapon(player_t *current_player);
 void SHOP_shopMenu(player_t *current_player);
 
