@@ -1,12 +1,10 @@
-
+#include "weapon.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <stdbool.h>
-#include <conio.h>
 #include <stdint.h>
 #include <math.h>
-#include "player.h"
+
 
 weapon_t createWeaponTypes(char *name, int16_t price, int8_t dmg)
 {

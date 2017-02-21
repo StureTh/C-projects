@@ -17,7 +17,7 @@
 #include "weapon.h"
 #include "defense.h"
 #include <stdint.h>
-#include <stdbool.h>
+
 
 
 

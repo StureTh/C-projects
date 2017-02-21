@@ -13,9 +13,9 @@
 
 #ifndef ENEMY_H
 #define ENEMY_H
-
-#include "weapon.h"
 #include "player.h"
+
+//#include "weapon.h"
 
 
 typedef struct enemy
@@ -34,17 +34,7 @@ typedef struct enemy
 
 
 
-#ifdef __cplusplus
-extern "C"
-{
-#endif
 
-
-
-
-#ifdef __cplusplus
-}
-#endif
 
 #endif /* ENEMY_H */
 

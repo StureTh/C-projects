@@ -1,14 +1,13 @@
+#include "game.h"
 #include "player.h"
 #include "shop.h"
 #include "defense.h"
 #include "enemy.h"
-#include "game.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <stdbool.h>
 #include <conio.h>
-#include <stdint.h>
 
 
 int stage_count = 0;

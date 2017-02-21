@@ -14,36 +14,27 @@
 #ifndef WEAPON_H
 #define WEAPON_H
 
-#include "player.h"
+#include "weapon.h"
 #include "defense.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdint.h>
 
- struct weapon
+typedef struct weapon
 {
     char name[32];
     int8_t dmg; 
     int8_t accuracy;
     int16_t price;
     
-};
+}weapon_t;
 
-typedef struct weapon weapon_t;
-typedef struct defense defense_t;
+//typedef struct weapon weapon_t;
+//typedef struct defense defense_t;
 
 weapon_t createWeaponTypes(char *name, int16_t price, int8_t dmg);
 int8_t WEAPON_useWeapon(weapon_t *attk_wpn, defense_t *opponent_deff);
 
-#ifdef __cplusplus
-extern "C" {
-#endif
 
-
-
-
-#ifdef __cplusplus
-}
-#endif
 #endif /* WEAPON_H */
 

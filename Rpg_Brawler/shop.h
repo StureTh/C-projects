@@ -15,8 +15,7 @@
 #define SHOP_H
 
 #include "player.h"
-#include "defense.h"
-#include <stdbool.h>
+
 
 void populateShopeDefensives(void);
 void SHOP_chooseDefenseItem(player_t *current_player);
@@ -27,16 +26,7 @@ void SHOP_shopMenu(player_t *current_player);
 
 
 
-#ifdef __cplusplus
-extern "C" {
-#endif
 
-
-
-
-#ifdef __cplusplus
-}
-#endif
 
 #endif /* SHOP_H */
 
