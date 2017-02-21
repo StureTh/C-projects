@@ -14,6 +14,7 @@
 #ifndef PLAYER_H
 #define PLAYER_H
 
+
 #include "weapon.h"
 #include "defense.h"
 #include <stdint.h>
@@ -26,6 +27,7 @@
  typedef struct player
 {
     char name[20];
+    const char *image;
     int16_t hp;
     uint16_t coin_purse;
     weapon_t *weapon;

@@ -1,8 +1,11 @@
 #include "enemy.h"
+
+#include "images.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <conio.h>
+
 
 enemy_t create_enemy(char *name, int hp, defense_t def, int gold_reward)
 {
@@ -28,6 +31,8 @@ enemy_t createSwampMonster(int hp, int defense, int dmg)
 
     swamp_monster.base.hp = hp;
     swamp_monster.gold_reward = 300;
+    
+    swamp_monster.base.image = &the_swamp_monster_image;
 
 
     return swamp_monster;

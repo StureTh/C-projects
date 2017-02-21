@@ -38,6 +38,7 @@ OBJECTFILES= \
 	${OBJECTDIR}/defense.o \
 	${OBJECTDIR}/enemy.o \
 	${OBJECTDIR}/game.o \
+	${OBJECTDIR}/images.o \
 	${OBJECTDIR}/main.o \
 	${OBJECTDIR}/player.o \
 	${OBJECTDIR}/shop.o \
@@ -82,6 +83,11 @@ ${OBJECTDIR}/game.o: game.c
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.c) -O2 -std=c11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/game.o game.c
+
+${OBJECTDIR}/images.o: images.c
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.c) -O2 -std=c11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/images.o images.c
 
 ${OBJECTDIR}/main.o: main.c
 	${MKDIR} -p ${OBJECTDIR}

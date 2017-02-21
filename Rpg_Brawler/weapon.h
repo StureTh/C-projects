@@ -14,7 +14,7 @@
 #ifndef WEAPON_H
 #define WEAPON_H
 
-#include "weapon.h"
+
 #include "defense.h"
 #include <stdio.h>
 #include <stdlib.h>
@@ -32,6 +32,7 @@ typedef struct weapon
 //typedef struct weapon weapon_t;
 //typedef struct defense defense_t;
 
+void WEAPON_init(weapon_t *weapon, char *name, int16_t price, int8_t dmg);
 weapon_t createWeaponTypes(char *name, int16_t price, int8_t dmg);
 int8_t WEAPON_useWeapon(weapon_t *attk_wpn, defense_t *opponent_deff);
 

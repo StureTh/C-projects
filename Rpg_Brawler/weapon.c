@@ -1,4 +1,5 @@
 #include "weapon.h"
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -6,13 +7,18 @@
 #include <math.h>
 
 
+
+void WEAPON_init(weapon_t *weapon, char *name, int16_t price, int8_t dmg)
+{
+  strcpy(weapon->name,name);
+    weapon->price = price;
+    weapon->dmg = dmg;
+}
 weapon_t createWeaponTypes(char *name, int16_t price, int8_t dmg)
 {
     weapon_t weapon_type;
 
-    strcpy(weapon_type.name,name);
-    weapon_type.price = price;
-    weapon_type.dmg = dmg;
+    
 
     return weapon_type;
 }

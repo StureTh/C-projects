@@ -1,8 +1,9 @@
 #include "game.h"
-#include "player.h"
+
+
 #include "shop.h"
-#include "defense.h"
 #include "enemy.h"
+#include "images.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -112,8 +113,32 @@ void battle_start(enemy_t *enemy)
 
 void GAME_battleScene(enemy_t *enemy)
 {
-    printf("Your hp is at %d------------------------The %s hp is at %d\n",
-           arena_player.hp, enemy->base.name, enemy->base.hp);
+  int x1;
+  int x2;
+  int y;
+     printf("      Your hp is at %d------------------------The %s hp is at %d\n",
+          arena_player.hp, enemy->base.name, enemy->base.hp);
+  printf("--------------------------------------------------------------------------\n");
+          
+  for(y = 0; y <IMG_MAX_H; y++) 
+    {
+      for(x1 = 0; x1 <IMG_MAX_W; x1++)
+        {
+          printf("%c", *(arena_player.image + x1 +(y * IMG_MAX_W)));
+        }
+      printf("                               ");
+      
+    for(x2 = 0; x2 < IMG_MAX_W; x2++)
+        {
+          printf("%c", *(enemy->base.image + x2 +(y * IMG_MAX_W)));
+        }
+    
+      printf("\n");
+        
+    }
+  printf("-----------------------------------------------------------------------\n");
+    
+      
 
 }
 

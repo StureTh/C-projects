@@ -14,7 +14,7 @@
 #ifndef SHOP_H
 #define SHOP_H
 
-#include "player.h"
+#include "enemy.h"
 
 
 void populateShopeDefensives(void);

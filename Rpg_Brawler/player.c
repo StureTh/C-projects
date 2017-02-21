@@ -1,8 +1,10 @@
 #include "player.h"
+#include "images.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <conio.h>
+
 
 static player_t createPlayer(char *name)
 {
@@ -12,6 +14,8 @@ static player_t createPlayer(char *name)
     new_player.coin_purse = 2000;
     new_player.defense;
      new_player.weapon;
+     
+     new_player.image = &the_hero_image;
 
     return new_player;
 }
