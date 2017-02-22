@@ -13,7 +13,7 @@
 
 #ifndef _ZE_ENGINE_H_
 #define _ZE_ENGINE_H_
-#define SCREEN_H            60
+#define SCREEN_H            25
 #define SCREEN_W            80
 #include "images.h"
 
@@ -22,6 +22,11 @@ char screen[SCREEN_H][SCREEN_W];
 void GPU_clear();
 void GPU_show();
 void GPU_draw(uint8_t y, uint8_t x, char *image,uint8_t height,uint8_t width);
+void GPU_text(uint8_t y, uint8_t x, char *string);
+void GPU_textMultiLine(uint8_t y, uint8_t x, char *string,uint8_t rows);
+
+
+
 
 
 #endif /* _ZE_ENGINE_H_ */
