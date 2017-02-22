@@ -19,7 +19,11 @@
  */
 int main(int argc, char** argv)
 {
+    IMAGE_init();
     GPU_clear();
+    GPU_draw(10,20,image_camel.image,image_camel.height,image_camel.width);
+    GPU_draw(10,40,image_bat.image,image_bat.height,image_bat.width);
+
     GPU_show();
 
     return 0;

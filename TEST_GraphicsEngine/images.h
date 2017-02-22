@@ -22,6 +22,7 @@ typedef struct image
 }image_t;
 
 extern image_t image_camel;
+extern image_t image_bat;
 
 
 

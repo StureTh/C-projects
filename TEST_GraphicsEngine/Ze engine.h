@@ -21,7 +21,7 @@
 char screen[SCREEN_H][SCREEN_W];
 void GPU_clear();
 void GPU_show();
-void GPU_draw(uint8_t x, uint8_t y, tile_t *tile);
+void GPU_draw(uint8_t y, uint8_t x, char *image,uint8_t height,uint8_t width);
 
 
 #endif /* _ZE_ENGINE_H_ */
