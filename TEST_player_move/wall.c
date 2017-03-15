@@ -7,8 +7,10 @@
 
 #include <stdint.h>
 #include <stdlib.h>
+int8_t validMove(int8_t x, int8_t y);
 
-static void imove(wall_t *self)
+#if 1
+static void moveWall(wall_t *self)
 {
 
     int8_t x = self->base.pos.x;
@@ -35,7 +37,7 @@ static void imove(wall_t *self)
         loops++;
     }
 }
-
+#endif
 void WALL_init(wall_t *self, int8_t x, int8_t y, bool destroyable, int16_t hp)
 {
     self->base.type = WALL;
@@ -58,5 +60,5 @@ void WALL_init(wall_t *self, int8_t x, int8_t y, bool destroyable, int16_t hp)
         self->desroyable = FALSE;
     }
 
-    self->imove = imove;
+    self->base.move = (void*)moveWall;
 }

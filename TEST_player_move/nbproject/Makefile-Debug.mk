@@ -36,9 +36,11 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 # Object Files
 OBJECTFILES= \
 	${OBJECTDIR}/Llist.o \
+	${OBJECTDIR}/cacti.o \
 	${OBJECTDIR}/enemy.o \
 	${OBJECTDIR}/main.o \
 	${OBJECTDIR}/object.o \
+	${OBJECTDIR}/player.o \
 	${OBJECTDIR}/wall.o \
 	${OBJECTDIR}/ze\ engine.o
 
@@ -72,6 +74,11 @@ ${OBJECTDIR}/Llist.o: Llist.c
 	${RM} "$@.d"
 	$(COMPILE.c) -g -std=c11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Llist.o Llist.c
 
+${OBJECTDIR}/cacti.o: cacti.c
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.c) -g -std=c11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/cacti.o cacti.c
+
 ${OBJECTDIR}/enemy.o: enemy.c
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
@@ -86,6 +93,11 @@ ${OBJECTDIR}/object.o: object.c
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.c) -g -std=c11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/object.o object.c
+
+${OBJECTDIR}/player.o: player.c
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.c) -g -std=c11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/player.o player.c
 
 ${OBJECTDIR}/wall.o: wall.c
 	${MKDIR} -p ${OBJECTDIR}

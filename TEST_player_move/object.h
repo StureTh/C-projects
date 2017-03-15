@@ -21,9 +21,10 @@
 typedef enum
 {
     WALL,
-    ENVIROMENT,           
+    ENVIROMENT,
+    PLAYER
 
-}obj_type_t;
+} obj_type_t;
 
 typedef struct coodinates
 {
@@ -38,11 +39,13 @@ typedef struct object
     coord_t pos;
     uint16_t hp;
     char sign;
-    
-    bool alive; 
-    bool walkable; 
+
+
+    bool alive;
+    bool walkable;
     bool moveable;
-    
+    void (*move)(struct object *self);
+
 } object_t;
 
 #endif /* OBJECT_H */

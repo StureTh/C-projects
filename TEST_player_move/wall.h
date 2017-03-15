@@ -19,13 +19,14 @@
 
 typedef struct wall
 {
-   object_t base;
-   bool desroyable; 
-     void (*imove)(struct wall *self);
-       
-}wall_t;
+    object_t base;
+    bool desroyable;
+   
+    
+} wall_t;
 
 void WALL_init(wall_t *self, int8_t x, int8_t y, bool destroyable, int16_t hp);
-static void imove(wall_t *self);
+void onColision(wall_t *self, object_t *obejct);
+static void moveWall(wall_t *self);
 #endif /* WALL_H */
 
