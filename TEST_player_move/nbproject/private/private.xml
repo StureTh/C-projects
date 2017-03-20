@@ -8,15 +8,18 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/Users/LIA2017/Documents/NetBeansProjects/C-projects/TEST_player_move/cacti.h</file>
+            <file>file:/C:/Users/LIA2017/Documents/NetBeansProjects/C-projects/TEST_player_move/player.h</file>
             <file>file:/C:/Users/LIA2017/Documents/NetBeansProjects/C-projects/TEST_player_move/cacti.c</file>
             <file>file:/C:/Users/LIA2017/Documents/NetBeansProjects/C-projects/TEST_player_move/wall.h</file>
-            <file>file:/C:/Users/LIA2017/Documents/NetBeansProjects/C-projects/TEST_player_move/enemy.c</file>
-            <file>file:/C:/Users/LIA2017/Documents/NetBeansProjects/C-projects/TEST_player_move/object.h</file>
+            <file>file:/C:/Users/LIA2017/Documents/NetBeansProjects/C-projects/TEST_player_move/Llist.h</file>
             <file>file:/C:/Users/LIA2017/Documents/NetBeansProjects/C-projects/TEST_player_move/wall.c</file>
             <file>file:/C:/Users/LIA2017/Documents/NetBeansProjects/C-projects/TEST_player_move/Llist.c</file>
+            <file>file:/C:/Users/LIA2017/Documents/NetBeansProjects/C-projects/TEST_player_move/main.c</file>
+            <file>file:/C:/Users/LIA2017/Documents/NetBeansProjects/C-projects/TEST_player_move/enemy.c</file>
+            <file>file:/C:/Users/LIA2017/Documents/NetBeansProjects/C-projects/TEST_player_move/object.h</file>
             <file>file:/C:/Users/LIA2017/Documents/NetBeansProjects/C-projects/TEST_player_move/enemy.h</file>
             <file>file:/C:/Users/LIA2017/Documents/NetBeansProjects/C-projects/TEST_player_move/object.c</file>
-            <file>file:/C:/Users/LIA2017/Documents/NetBeansProjects/C-projects/TEST_player_move/main.c</file>
+            <file>file:/C:/Users/LIA2017/Documents/NetBeansProjects/C-projects/TEST_player_move/player.c</file>
         </group>
     </open-files>
 </project-private>

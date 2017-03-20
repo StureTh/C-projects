@@ -7,12 +7,12 @@
 
 #include <stdint.h>
 #include <stdlib.h>
-int8_t validMove(int8_t x, int8_t y);
+int8_t validMove(int8_t x, int8_t y,object_t *self);
 
 #if 1
 static void moveWall(wall_t *self)
 {
-
+/*
     int8_t x = self->base.pos.x;
     int8_t y = self->base.pos.y;
 
@@ -26,7 +26,7 @@ static void moveWall(wall_t *self)
 
 
 
-        valid = validMove(x, y);
+        valid = validMove(x, y,self);
 
         if(valid == 1)
         {
@@ -36,6 +36,7 @@ static void moveWall(wall_t *self)
         }
         loops++;
     }
+  */
 }
 #endif
 void WALL_init(wall_t *self, int8_t x, int8_t y, bool destroyable, int16_t hp)
@@ -61,4 +62,5 @@ void WALL_init(wall_t *self, int8_t x, int8_t y, bool destroyable, int16_t hp)
     }
 
     self->base.move = (void*)moveWall;
+    self->base.onColission = NULL;
 }

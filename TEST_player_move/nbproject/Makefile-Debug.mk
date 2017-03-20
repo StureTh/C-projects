@@ -36,6 +36,7 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 # Object Files
 OBJECTFILES= \
 	${OBJECTDIR}/Llist.o \
+	${OBJECTDIR}/box.o \
 	${OBJECTDIR}/cacti.o \
 	${OBJECTDIR}/enemy.o \
 	${OBJECTDIR}/main.o \
@@ -73,6 +74,11 @@ ${OBJECTDIR}/Llist.o: Llist.c
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.c) -g -std=c11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/Llist.o Llist.c
+
+${OBJECTDIR}/box.o: box.c
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.c) -g -std=c11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/box.o box.c
 
 ${OBJECTDIR}/cacti.o: cacti.c
 	${MKDIR} -p ${OBJECTDIR}

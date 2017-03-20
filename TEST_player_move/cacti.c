@@ -10,10 +10,10 @@ static void imove(cacti_t *self)
 
 }
 
-/*void onColision(cacti_t *self,object_t *obejct)
+void onColision(cacti_t *self,object_t *object)
 {
-
-}*/
+    object->hp -= 5;
+}
 
 void CACTI_init(cacti_t *self, int8_t x, int8_t y)
 {
@@ -21,7 +21,7 @@ void CACTI_init(cacti_t *self, int8_t x, int8_t y)
     self->base.pos.x = x;
     self->base.pos.y = y;
 
-    self->base.sign = 'c';
+    self->base.sign = 'C';
     self->base.alive = FALSE;
     self->base.walkable = TRUE;
     self->base.moveable = FALSE;
@@ -30,7 +30,7 @@ void CACTI_init(cacti_t *self, int8_t x, int8_t y)
     self->base.hp = 3;
     
     self->base.move = (void*)imove;
-   // self->onColision = onColision;
+    self->base.onColission = (void*)onColision;
     
     
 }

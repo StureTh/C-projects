@@ -8,7 +8,7 @@
 #include "cacti.h"
 
 
-int8_t OBJECT_checkColision(llist_t *llist_objects, int8_t pos_x, int8_t pos_y)
+int8_t OBJECT_checkColision(llist_t *llist_objects, int8_t pos_x, int8_t pos_y, object_t *mover)
 {
     node_t search;
     int8_t collision = 0;
@@ -24,7 +24,10 @@ int8_t OBJECT_checkColision(llist_t *llist_objects, int8_t pos_x, int8_t pos_y)
             {
                 collision = 1;
             }
-            // onColision()
+            if(object->onColission != NULL)
+            {
+                object->onColission(object,mover);
+            }
             break;
         }
     }

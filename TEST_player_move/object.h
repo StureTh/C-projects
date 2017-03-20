@@ -26,6 +26,15 @@ typedef enum
 
 } obj_type_t;
 
+typedef enum
+{
+    UP,
+    DOWN,
+    LEFT,
+    RIGHT
+            
+}obj_dir_t;
+
 typedef struct coodinates
 {
     int8_t x;
@@ -36,15 +45,18 @@ typedef struct coodinates
 typedef struct object
 {
     obj_type_t type;
+    obj_dir_t move_dir;
     coord_t pos;
     uint16_t hp;
     char sign;
+  
 
 
     bool alive;
     bool walkable;
     bool moveable;
     void (*move)(struct object *self);
+    void (*onColission)(struct object *self, struct object *obejct);
 
 } object_t;
 

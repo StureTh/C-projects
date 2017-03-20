@@ -21,21 +21,16 @@
 #include "wall.h"
 #include "player.h"
 #include "cacti.h"
+#include "box.h"
 #include <stdbool.h>
 #include <time.h>
 
-
+_player_t *player1;
 char player_char[1][6] = {"&#9996"};
 char *welcome[3] = {"                WELCOME", "         to the walking simulator", ""};
 llist_t enemies;
-int8_t OBJECT_checkColision(llist_t *llist_objects, int8_t pos_x, int8_t pos_y);
-
-typedef struct player
-{
-    char name[16];
-    coord_t pos;
-    char *image;
-} player_t;
+int8_t OBJECT_checkColision(llist_t *llist_objects,
+                            int8_t pos_x, int8_t pos_y,object_t *mover);
 
 typedef struct map
 {
@@ -44,12 +39,12 @@ typedef struct map
 
 } map_t;
 
-#if 1
+#if 0
 char TEST_map_wBuilding[SCREEN_H][SCREEN_W] = {
     "WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW",
     "                                                                     ",
     "                                                                     ",
-    "                                                                     ",
+    "        C                                                            ",
     "                   W   W                W                            ",
     "                   W   W                                             ",
     "                   W   W                                             ",
@@ -72,15 +67,15 @@ char TEST_map_wBuilding[SCREEN_H][SCREEN_W] = {
 char TEST_map_wBuilding[SCREEN_H][SCREEN_W] = {
     "                                                                     ",
     "                                                                     ",
-    "                                                                     ",
+    "    P                                                                ",
     "                                                                     ",
     "                   W                                                 ",
     "                                                                     ",
     "                                                                     ",
-    "                              W                                      ",
+    "                  C           W                                      ",
+    "  B                                                                  ",
     "                                                                     ",
-    "                                                                     ",
-    "                                                                     ",
+    "                                   C                                 ",
     "                       W                                             ",
     "                                                                     ",
     "                                                                     ",
@@ -116,12 +111,26 @@ void populateMap(map_t *map)
             {
                 object = LLIST_push(&enemies, sizeof(cacti_t));
                 CACTI_init((cacti_t*) object, x, y);
+                
+            }
+            if(coord == 'B')
+            {
+                object = LLIST_push(&enemies, sizeof(box_t));
+                BOX_init((box_t*)object,x,y);
+                
+            }
+            if(coord == 'P')
+            {
+               object = LLIST_push(&enemies, sizeof(_player_t)); 
+               PLAYER_init((_player_t*)object, x,y);
+               
+               player1 = (_player_t*)object;
             }
         }
     }
 }
 
-int8_t validMove(int8_t x, int8_t y)
+int8_t validMove(int8_t x, int8_t y,object_t *self)
 {
 
     int valid = 1;
@@ -133,53 +142,11 @@ int8_t validMove(int8_t x, int8_t y)
     {
         valid = 0;
     }
-    if(OBJECT_checkColision(&enemies, x, y))
+    if(OBJECT_checkColision(&enemies, x, y,self))
     {
         valid = 0;
     }
     return valid;
-}
-
-void PLAYER_move(player_t *player)
-{
-    int x = player->pos.x;
-    int y = player->pos.y;
-    char dir;
-
-    timeout(0);
-    dir = getch();
-
-    switch(dir)
-    {
-        case 'w':
-            if(validMove(x, y - 1))
-            {
-                player->pos.y -= 1;
-            }
-            break;
-        case 's':
-            if(validMove(x, y + 1))
-            {
-                player->pos.y += 1;
-            }
-            break;
-        case 'a':
-            if(validMove(x - 1, y))
-            {
-                player->pos.x -= 1;
-            }
-            break;
-        case 'd':
-            if(validMove(x + 1, y))
-            {
-                player->pos.x += 1;
-            }
-            break;
-        default:
-            break;
-    }
-
-
 }
 
 void welcome_msg(void)
@@ -215,11 +182,11 @@ void updateObjects(llist_t *list)
     while(object != NULL)
     {
 
-
-        object->move(object);
-
-
-
+        if(object->move)
+        {
+            object->move(object);
+        }
+        
         object = LLIST_searchNext(&search);
     }
 
@@ -243,12 +210,6 @@ int main(int argc, char** argv)
     time_update = clock();
     time_rate = clock();
 
-    player_t walker;
-    walker.pos.x = 1;
-    walker.pos.y = 1;
-    strcpy(walker.name, "VANDRAREN");
-    walker.image = (char*) player_char;
-
     welcome_msg();
     while(1)
     {
@@ -263,8 +224,8 @@ int main(int argc, char** argv)
         {
             time_update += 20;
 
-            PLAYER_move(&walker);
-            printw("player move\n");
+            //PLAYER_move(&walker);
+        
             updateObjects(&enemies);
 
 
@@ -273,9 +234,8 @@ int main(int argc, char** argv)
 
             printw("Time update: %03i   ", time_update / 1000);
             printw("Frame rate: %i\n", frame_rate);
-            printw("x: %i\ny: %i\n", walker.pos.x, walker.pos.y);
+            printw("x: %i\ny: %i           HP %i\n", player1->base.pos.x, player1->base.pos.y, player1->base.hp);
             draw_enemies();
-            GPU_draw_single(walker.pos.x, walker.pos.y, '@');
             GPU_show();
 
 

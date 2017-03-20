@@ -26,7 +26,7 @@ typedef struct wall
 } wall_t;
 
 void WALL_init(wall_t *self, int8_t x, int8_t y, bool destroyable, int16_t hp);
-void onColision(wall_t *self, object_t *obejct);
+//void onColision(wall_t *self, object_t *obejct);
 static void moveWall(wall_t *self);
 #endif /* WALL_H */
 

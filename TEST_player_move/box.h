@@ -5,24 +5,28 @@
  */
 
 /* 
- * File:   cacti.h
+ * File:   box.h
  * Author: LIA2017
  *
- * Created on den 13 mars 2017, 10:36
+ * Created on den 20 mars 2017, 11:23
  */
-
-#ifndef CACTI_H
 
 #include "object.h"
 
-typedef struct cacti
+
+#ifndef BOX_H
+#define BOX_H
+
+typedef struct box
 {
     object_t base;
-    bool desroyable;
+      bool desroyable;
+    
+}box_t;
+
+void BOX_init(box_t *self, int8_t x, int8_t y);
 
 
-} cacti_t;
 
-void CACTI_init(cacti_t *self, int8_t x, int8_t y);
-#endif /* CACTI_H */
+#endif /* BOX_H */
 

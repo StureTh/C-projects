@@ -17,15 +17,25 @@
 #include "object.h"
 #include <stdbool.h>
 
+struct key_map
+{
+    char dir_up;
+    char dir_down;
+    char dir_left;
+    char dir_right;
+    char attack;
+};
+
 typedef struct _player
 {
     object_t base;
     
-    
-   
-}_player_t;
+
+
+
+} _player_t;
 static void playerMove(_player_t *self);
-void PLAYER_init(_player_t *self, uint8_t x, uint8_t y,uint16_t hp);
+void PLAYER_init(_player_t *self, uint8_t x, uint8_t y);
 
 
 #endif /* PLAYER_H */
