@@ -7,7 +7,7 @@
 
 #include <stdint.h>
 #include <stdlib.h>
-int8_t validMove(int8_t x, int8_t y,object_t *self);
+int8_t OBJECT_validMove(int8_t x, int8_t y,object_t *self);
 
 #if 1
 static void moveWall(wall_t *self)

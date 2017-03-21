@@ -11,18 +11,23 @@
  * Created on den 9 mars 2017, 10:23
  */
 
-#ifndef OBJECT_H
-#define OBJECT_H
+#ifndef _OBJECT_H
+#define _OBJECT_H
 
-#include "curses.h"
+
 #include <stdint.h>
-#include <stdbool.h>
+#include "curses.h"
+#include "Llist.h"
+
+
+llist_t worldObjects;
 
 typedef enum
 {
     WALL,
     ENVIROMENT,
-    PLAYER
+    PLAYER,
+    ENEMY
 
 } obj_type_t;
 
@@ -31,9 +36,10 @@ typedef enum
     UP,
     DOWN,
     LEFT,
-    RIGHT
-            
-}obj_dir_t;
+    RIGHT,
+    NONE
+
+} obj_dir_t;
 
 typedef struct coodinates
 {
@@ -49,8 +55,6 @@ typedef struct object
     coord_t pos;
     uint16_t hp;
     char sign;
-  
-
 
     bool alive;
     bool walkable;
@@ -60,5 +64,9 @@ typedef struct object
 
 } object_t;
 
-#endif /* OBJECT_H */
+int8_t OBJECT_checkColision(llist_t *llist_objects, int8_t pos_x, int8_t pos_y, object_t *mover);
+int8_t OBJECT_validMove(int8_t x, int8_t y,object_t *self);
+void OBJECT_updateWorldObjects(llist_t *list);
+
+#endif /* _OBJECT_H */
 

@@ -29,12 +29,9 @@ struct key_map
 typedef struct _player
 {
     object_t base;
-    
-
-
-
 } _player_t;
-static void playerMove(_player_t *self);
+
+_player_t *player1;
 void PLAYER_init(_player_t *self, uint8_t x, uint8_t y);
 
 

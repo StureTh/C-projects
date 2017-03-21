@@ -37,9 +37,12 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 OBJECTFILES= \
 	${OBJECTDIR}/Llist.o \
 	${OBJECTDIR}/box.o \
+	${OBJECTDIR}/bullet.o \
 	${OBJECTDIR}/cacti.o \
+	${OBJECTDIR}/dog.o \
 	${OBJECTDIR}/enemy.o \
 	${OBJECTDIR}/main.o \
+	${OBJECTDIR}/map.o \
 	${OBJECTDIR}/object.o \
 	${OBJECTDIR}/player.o \
 	${OBJECTDIR}/wall.o \
@@ -80,10 +83,20 @@ ${OBJECTDIR}/box.o: box.c
 	${RM} "$@.d"
 	$(COMPILE.c) -g -std=c11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/box.o box.c
 
+${OBJECTDIR}/bullet.o: bullet.c
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.c) -g -std=c11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/bullet.o bullet.c
+
 ${OBJECTDIR}/cacti.o: cacti.c
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.c) -g -std=c11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/cacti.o cacti.c
+
+${OBJECTDIR}/dog.o: dog.c
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.c) -g -std=c11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/dog.o dog.c
 
 ${OBJECTDIR}/enemy.o: enemy.c
 	${MKDIR} -p ${OBJECTDIR}
@@ -94,6 +107,11 @@ ${OBJECTDIR}/main.o: main.c
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.c) -g -std=c11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/main.o main.c
+
+${OBJECTDIR}/map.o: map.c
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.c) -g -std=c11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/map.o map.c
 
 ${OBJECTDIR}/object.o: object.c
 	${MKDIR} -p ${OBJECTDIR}

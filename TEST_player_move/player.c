@@ -2,8 +2,20 @@
 #include <stdint.h>
 #include <stdlib.h>
 #include "curses.h"
+#include "bullet.h"
 
-int8_t validMove(int8_t x, int8_t y, object_t *self);
+int8_t OBJECT_validMove(int8_t x, int8_t y, object_t *self);
+
+void shoot(_player_t *self)
+{
+    bullet_t *bullet;
+
+    if(self->base.move_dir != NONE)
+    {
+        bullet = LLIST_push(&worldObjects, sizeof(bullet_t));
+        BULLET_init(bullet, self->base.move_dir, &self->base.pos);
+    }
+}
 
 static void playerMove(_player_t *self)
 {
@@ -18,7 +30,7 @@ static void playerMove(_player_t *self)
     {
         case 'w':
             self->base.move_dir = UP;
-            if(validMove(x, y - 1, &self->base))
+            if(OBJECT_validMove(x, y - 1, &self->base))
             {
                 self->base.pos.y -= 1;
 
@@ -27,7 +39,7 @@ static void playerMove(_player_t *self)
             break;
         case 's':
             self->base.move_dir = DOWN;
-            if(validMove(x, y + 1, &self->base))
+            if(OBJECT_validMove(x, y + 1, &self->base))
             {
                 self->base.pos.y += 1;
 
@@ -36,7 +48,7 @@ static void playerMove(_player_t *self)
             break;
         case 'a':
             self->base.move_dir = LEFT;
-            if(validMove(x - 1, y, &self->base))
+            if(OBJECT_validMove(x - 1, y, &self->base))
             {
                 self->base.pos.x -= 1;
 
@@ -45,12 +57,16 @@ static void playerMove(_player_t *self)
             break;
         case 'd':
             self->base.move_dir = RIGHT;
-            if(validMove(x + 1, y, &self->base))
+            if(OBJECT_validMove(x + 1, y, &self->base))
             {
                 self->base.pos.x += 1;
 
             }
 
+            break;
+
+        case 'k':
+            shoot(self);
             break;
         default:
             break;
@@ -66,7 +82,9 @@ void PLAYER_init(_player_t *self, uint8_t x, uint8_t y)
 
     self->base.sign = '$';
     self->base.hp = 150;
-
+    self->base.walkable = false;
+    self->base.moveable = false;
     self->base.move = (void*) playerMove;
+    self->base.onColission = NULL;
 
 }
