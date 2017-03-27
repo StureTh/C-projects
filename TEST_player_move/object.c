@@ -11,8 +11,7 @@
 #include "dog.h"
 #include "player.h"
 
-
-int8_t OBJECT_checkColision(llist_t *llist_objects, int8_t pos_x, int8_t pos_y, object_t *mover)
+int8_t OBJECT_checkColision(llist_t *llist_objects, int8_t pos_x, int8_t pos_y, object_t *self)
 {
     node_t search;
     int8_t collision = 0;
@@ -22,24 +21,28 @@ int8_t OBJECT_checkColision(llist_t *llist_objects, int8_t pos_x, int8_t pos_y, 
 
     while((object = LLIST_searchNext(&search)))
     {
-        if(object->pos.x == pos_x && object->pos.y == pos_y)
+        if(object->pos.x == pos_x && object->pos.y == pos_y && object != self)
         {
             if(object->walkable == FALSE)
             {
                 collision = 1;
             }
-            if(object->onColission != NULL)
-            {              
-                     object->onColission(object,mover);              
-               
+            if(self->type == PROJECTILE)
+            {
+                self->onHit(self, object);
+                break;
             }
-            break;
-        }
+            if(object->onColission != NULL)
+            {
+                object->onColission(object, self);
+            }
+        }    
     }
     return collision;
+
 }
 
-int8_t OBJECT_validMove(int8_t x, int8_t y,object_t *self)
+int8_t OBJECT_validMove(int8_t x, int8_t y, object_t *self)
 {
     int valid = 1;
     if(x < 0 || x > SCREEN_W - 1)
@@ -50,7 +53,7 @@ int8_t OBJECT_validMove(int8_t x, int8_t y,object_t *self)
     {
         valid = 0;
     }
-    if(OBJECT_checkColision(&worldObjects, x, y,self))
+    if(OBJECT_checkColision(&worldObjects, x, y, self))
     {
         valid = 0;
     }
@@ -70,7 +73,7 @@ void OBJECT_updateWorldObjects(llist_t *list)
     {
         if(object->type == ENEMY)
         {
-            dog = (dog_t*)object;
+            dog = (dog_t*) object;
             dog->target = &player1->base;
             dog->isChasing = true;
         }
@@ -78,7 +81,7 @@ void OBJECT_updateWorldObjects(llist_t *list)
         {
             object->move(object);
         }
-        
+
         object = LLIST_searchNext(&search);
     }
 

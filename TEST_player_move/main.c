@@ -30,13 +30,13 @@
 
 
 char player_char[1][6] = {"&#9996"};
-char *welcome[3] = {"                WELCOME", "         to the walking simulator", ""};
+char *welcome[5] = {"               WELCOME", "         to MetalGear Solid ","","          ULTIMATE EDITION" ,""};
 
 void welcome_msg(void)
 {
     GPU_clear();
-    GPU_text_multiLine_withBoarder(6, 20, welcome, 3, 40, 0, '|', '*');
-    GPU_text(9, 24, " press the \"anykey\" to continue ");
+    GPU_text_multiLine_withBoarder(6, 20, welcome, 5, 40, 0, '|', '*');
+    GPU_text(11, 24, " press the \"anykey\" to continue ");
     GPU_show();
     getch();
 }
@@ -86,18 +86,16 @@ int main(int argc, char** argv)
         {
             time_update += 50;
 
-            //PLAYER_move(&walker);
-        
             OBJECT_updateWorldObjects(&worldObjects);
 
 
-
             GPU_clear();
-
+            draw_enemies();
             printw("Time update: %03i   ", time_update / 1000);
             printw("Frame rate: %i\n", frame_rate);
             printw("x: %i\ny: %i           HP %i\n", player1->base.pos.x, player1->base.pos.y, player1->base.hp);
-            draw_enemies();
+
+            
             GPU_show();
 
 

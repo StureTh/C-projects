@@ -20,6 +20,7 @@ typedef struct bullet
 {
     object_t base;
     int dmg;
+  
     
 }bullet_t;
 void BULLET_init(bullet_t *self, obj_dir_t direction, coord_t *source_coord);

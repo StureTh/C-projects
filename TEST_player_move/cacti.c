@@ -10,9 +10,9 @@ static void imove(cacti_t *self)
 
 }
 
-void onColision(cacti_t *self,object_t *object)
+void onColision(cacti_t *self, object_t *object)
 {
-    object->hp -= 5;
+    object->takeDmg(object, 5);
 }
 
 void CACTI_init(cacti_t *self, int8_t x, int8_t y)
@@ -28,9 +28,11 @@ void CACTI_init(cacti_t *self, int8_t x, int8_t y)
 
     self->desroyable = TRUE;
     self->base.hp = 3;
-    
-    self->base.move = (void*)imove;
-    self->base.onColission = (void*)onColision;
-    
-    
+
+    self->base.move = (void*) imove;
+    self->base.takeDmg = NULL;
+    self->base.onHit = NULL;
+    self->base.onColission = (void*) onColision;
+
+
 }

@@ -38,7 +38,7 @@ void MAP_populate(map_t *map)
             {
                 object = LLIST_push(&worldObjects, sizeof(wall_t));
 
-                WALL_init((wall_t*) object, x, y, FALSE, 0);
+                WALL_init((wall_t*) object, x, y, TRUE, 5);
 
             }
             if(coord == 'C')
@@ -98,23 +98,22 @@ char TEST_map_wBuilding[SCREEN_H][SCREEN_W] = {
 char TEST_map_wBuilding[SCREEN_H][SCREEN_W] = {
     "                                                                     ",
     "                                                                     ",
-    "                                                                     ",
-    "                                                                     ",
-    "                                                                     ",
-    "                                                                     ",
-    "                                                                     ",
-    "                                                                     ",
-    "                                                                     ",
-    "   P                                                                 ",
-    "                                                                     ",
-    "                                                                     ",
-    "                                                                     ",
-    "                                                                     ",
-    "                                                                     ",
     "                                                      R              ",
     "                                                                     ",
     "                                                                     ",
     "                                                                     ",
-    "                                                                     "
+    "                                                                     ",
+    "                                                                     ",
+    "                             W                                       ",
+    "                             W                                       ",
+    "                             W                                       ",
+    "                                                                     ",
+    "                                                                     ",
+    "                                                                     ",
+    "                                                                     ",
+    "                             C      C      C C                       ",
+    "                                                                     ",
+    "                                                                     ",
+    "                                                             P       "
 };
 #endif

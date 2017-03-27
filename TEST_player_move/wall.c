@@ -39,6 +39,15 @@ static void moveWall(wall_t *self)
   */
 }
 #endif
+void takeDmg(wall_t *self, int dmg)
+{
+    self->base.hp -= 1;
+    if(self->base.hp <= 0)
+    {
+        LLIST_pop(&worldObjects, self);
+    }
+  
+}
 void WALL_init(wall_t *self, int8_t x, int8_t y, bool destroyable, int16_t hp)
 {
     self->base.type = WALL;
@@ -63,4 +72,5 @@ void WALL_init(wall_t *self, int8_t x, int8_t y, bool destroyable, int16_t hp)
 
     self->base.move = (void*)moveWall;
     self->base.onColission = NULL;
+    self->base.takeDmg = (void*)takeDmg;
 }

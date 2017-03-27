@@ -68,5 +68,7 @@ void BOX_init(box_t *self, int8_t x, int8_t y)
     self->desroyable = TRUE;
     
     self->base.move = NULL;
+    self->base.takeDmg = NULL;
+    self->base.onHit = NULL;
     self->base.onColission = (void*)onCollision;
 }

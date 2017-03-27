@@ -73,7 +73,10 @@ static void playerMove(_player_t *self)
     }
 
 }
-
+void player_takeDmg(_player_t *self, int dmg)
+{
+    self->base.hp -= dmg;
+}
 void PLAYER_init(_player_t *self, uint8_t x, uint8_t y)
 {
     self->base.type = PLAYER;
@@ -82,9 +85,11 @@ void PLAYER_init(_player_t *self, uint8_t x, uint8_t y)
 
     self->base.sign = '$';
     self->base.hp = 150;
+    self->base.move_dir = NONE;
     self->base.walkable = false;
     self->base.moveable = false;
     self->base.move = (void*) playerMove;
     self->base.onColission = NULL;
+    self->base.takeDmg = (void*)player_takeDmg;
 
 }
