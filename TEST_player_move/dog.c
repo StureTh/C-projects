@@ -129,7 +129,7 @@ END2:
 
 }
 
-static bool dogInRange(dog_t *self)
+static bool targetInRange(dog_t *self)
 {
     int8_t targetX = self->target->pos.x;
     int8_t targetY = self->target->pos.y;
@@ -174,49 +174,57 @@ void dogAttack(dog_t *self)
     self->base.isAttacking = TRUE;
     self->base.attk_timer = clock() + 1500;
     self->base.attk_pos = self->base.pos;
+    bool valid = FALSE;
 
     if(direction == DOWN)
     {
-        if(OBJECT_validMove(self->base.pos.y + 1, self->base.pos.x, &self->base))
+        if(OBJECT_validMove(self->base.pos.x, self->base.pos.y + 1, &self->base))
         {
-            self->base.pos.y = self->target->pos.y - 1;
+            self->base.pos.y += 1;
             self->base.sign = '^';
+            valid = TRUE;
         }
 
     }
     if(direction == UP)
     {
-        if(OBJECT_validMove(self->base.pos.y - 1, self->base.pos.x, &self->base))
+        if(OBJECT_validMove(self->base.pos.x, self->base.pos.y - 1, &self->base))
         {
-            self->base.pos.y = self->target->pos.y + 1;
+            self->base.pos.y -= 1;
             self->base.sign = 'v';
+            valid = TRUE;
         }
     }
     if(direction == LEFT)
     {
-        if(OBJECT_validMove(self->base.pos.y, self->base.pos.x - 1, &self->base))
+        if(OBJECT_validMove(self->base.pos.x - 1, self->base.pos.y, &self->base))
         {
-            self->base.pos.x = self->target->pos.x + 1;
+            self->base.pos.x -= 1;
             self->base.sign = '>';
+            valid = TRUE;
         }
     }
     if(direction == RIGHT)
     {
-        if(OBJECT_validMove(self->base.pos.y, self->base.pos.x + 1, &self->base))
+        if(OBJECT_validMove(self->base.pos.x + 1, self->base.pos.y, &self->base))
         {
-            self->base.pos.x = self->target->pos.x - 1;
+            self->base.pos.x += 1;
             self->base.sign = '<';
+            valid = TRUE;
         }
     }
-
-    self->target->hp -= self->attk_dmg;
+    if(valid)
+    {
+        self->target->hp -= self->attk_dmg;
+    }
 
 }
 
 static void moveDog(dog_t *self)
 {
 
-    if(canAttack(self) && dogInRange(self))
+  
+    if(canAttack(self) && targetInRange(self))
     {
         dogAttack(self);
         return;
@@ -232,8 +240,7 @@ static void moveDog(dog_t *self)
     {
         return;
     }
-
-
+   
 
 
 
@@ -299,30 +306,30 @@ static void dogOnCollision(dog_t *self, object_t *object)
     switch(object->move_dir)
     {
         case UP:
-            if(OBJECT_validMove(x, y - 1,&self->base))
+            if(OBJECT_validMove(x, y - 1, &self->base))
             {
                 self->base.pos.y -= 1;
             }
             break;
 
         case DOWN:
-            if(OBJECT_validMove(x, y + 1,&self->base))
+            if(OBJECT_validMove(x, y + 1, &self->base))
             {
                 self->base.pos.y += 1;
             }
             break;
 
         case LEFT:
-            if(OBJECT_validMove(x - 1, y,&self->base))
+            if(OBJECT_validMove(x - 1, y, &self->base))
             {
-                self->base.pos.x -= 1;              
+                self->base.pos.x -= 1;
             }
             break;
 
         case RIGHT:
-            if(OBJECT_validMove(x + 1, y,&self->base))
+            if(OBJECT_validMove(x + 1, y, &self->base))
             {
-                self->base.pos.x += 1;               
+                self->base.pos.x += 1;
             }
             break;
 
@@ -356,7 +363,7 @@ void DOG_init(dog_t *self, int8_t x, int8_t y)
     self->base.type = ENEMY;
     self->base.pos.x = x;
     self->base.pos.y = y;
-
+    self->base.move_dir = NONE;
     self->base.sign = 'D';
     self->base.hp = 30;
     self->attk_dmg = 40;
@@ -368,6 +375,7 @@ void DOG_init(dog_t *self, int8_t x, int8_t y)
     self->base.alive = TRUE;
     self->base.moveable = TRUE;
     self->base.walkable = FALSE;
+    self->base.attk_timer = 0;
 
     self->base.isAttacking = FALSE;
 

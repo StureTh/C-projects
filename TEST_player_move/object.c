@@ -3,6 +3,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
+
 #include "object.h"
 #include "Llist.h"
 #include "cacti.h"
@@ -21,6 +23,10 @@ int8_t OBJECT_checkColision(llist_t *llist_objects, int8_t pos_x, int8_t pos_y, 
 
     while((object = LLIST_searchNext(&search)))
     {
+        if(object->pos.x == 10 && object->pos.y == 7)
+        {
+            
+        }
         if(object->pos.x == pos_x && object->pos.y == pos_y && object != self)
         {
             if(object->walkable == FALSE)
@@ -53,7 +59,7 @@ int8_t OBJECT_validMove(int8_t x, int8_t y, object_t *self)
     {
         valid = 0;
     }
-    if(OBJECT_checkColision(&worldObjects, x, y, self))
+    else if(OBJECT_checkColision(&worldObjects, x, y, self))
     {
         valid = 0;
     }
@@ -62,6 +68,8 @@ int8_t OBJECT_validMove(int8_t x, int8_t y, object_t *self)
 
 void OBJECT_updateWorldObjects(llist_t *list)
 {
+    
+      
     node_t search;
     object_t *object = NULL;
     dog_t *dog;
@@ -76,13 +84,20 @@ void OBJECT_updateWorldObjects(llist_t *list)
             dog = (dog_t*) object;
             dog->target = &player1->base;
             dog->isChasing = true;
+           
         }
         if(object->move)
         {
+           
             object->move(object);
+           
         }
+        
+       
 
         object = LLIST_searchNext(&search);
     }
+    
+    
 
 }

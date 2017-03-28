@@ -29,8 +29,9 @@
 #include <time.h>
 
 
+
 char player_char[1][6] = {"&#9996"};
-char *welcome[5] = {"               WELCOME", "         to MetalGear Solid ","","          ULTIMATE EDITION" ,""};
+char *welcome[5] = {"               WELCOME", "         to MetalGear Solid ", "", "          ULTIMATE EDITION", ""};
 
 void welcome_msg(void)
 {
@@ -84,20 +85,32 @@ int main(int argc, char** argv)
 
         if(time_update < clock())
         {
-            time_update += 50;
-
+            time_update += 25;
+           
             OBJECT_updateWorldObjects(&worldObjects);
-
-
+            #if 0 
+            getche();
+            while(!kbhit())
+            {
+                
+            }
+              getche();
+#endif
             GPU_clear();
             draw_enemies();
+           
             printw("Time update: %03i   ", time_update / 1000);
             printw("Frame rate: %i\n", frame_rate);
             printw("x: %i\ny: %i           HP %i\n", player1->base.pos.x, player1->base.pos.y, player1->base.hp);
 
-            
-            GPU_show();
 
+            GPU_show();
+#if 0
+ while(!kbhit())
+            {
+                
+            }
+        #endif  
 
             frame_cnt++;
         }

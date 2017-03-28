@@ -14,12 +14,20 @@
 #ifndef MAP_H
 #define MAP_H
 
+
 typedef struct map
 {
+    int nr;
     char *map_data;
-    char name[];
+
 
 } map_t;
+typedef struct THEMAP
+{
+
+    map_t section[16];
+    
+}THEMAP_t;
 
 void MAP_populate(map_t *map);
 char TEST_map_wBuilding[SCREEN_H][SCREEN_W];

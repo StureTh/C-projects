@@ -20,8 +20,7 @@ static void onCollision(box_t *self, object_t *object)
             if(OBJECT_validMove(x, y - 1,&self->base))
             {
                 self->base.pos.y -= 1;
-                
-               
+                              
             }
             break;
             
@@ -63,6 +62,7 @@ void BOX_init(box_t *self, int8_t x, int8_t y)
     self->base.sign = 'B';
     self->base.alive = FALSE;
     self->base.walkable = FALSE;
+    self->base.moveable = TRUE;
      
     self->base.hp = 10;
     self->desroyable = TRUE;

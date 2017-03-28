@@ -70,10 +70,10 @@ void MAP_populate(map_t *map)
         }
     }
 }
-#if 1
+#if 0
 char TEST_map_wBuilding[SCREEN_H][SCREEN_W] = {
-    "WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW",
-    "  P                                                                   ",
+    "WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW__WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW",
+    "  P                             s                                    ",
     "                                                                     ",
     "        C                                                            ",
     "                   W   W                W                            ",
@@ -98,22 +98,22 @@ char TEST_map_wBuilding[SCREEN_H][SCREEN_W] = {
 char TEST_map_wBuilding[SCREEN_H][SCREEN_W] = {
     "                                                                     ",
     "                                                                     ",
-    "                                                      R              ",
+    "                                                                     ",
+    "                           P                                         ",
+    "                                                                     ",
+    "                                                                     ",
+    "                                                                     ",
+    "     WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW                           ",
+    "     WRWRWRWRWRWRWRWRWRWRWRWRWRWRWRWRWRWRW                           ",
+    "     WWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWWW                           ",
     "                                                                     ",
     "                                                                     ",
     "                                                                     ",
     "                                                                     ",
     "                                                                     ",
-    "                             W                                       ",
-    "                             W                                       ",
-    "                             W                                       ",
     "                                                                     ",
     "                                                                     ",
     "                                                                     ",
-    "                                                                     ",
-    "                             C      C      C C                       ",
-    "                                                                     ",
-    "                                                                     ",
-    "                                                             P       "
+    "                                                                     "
 };
 #endif

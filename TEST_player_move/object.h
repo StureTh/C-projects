@@ -20,8 +20,9 @@
 #include "curses.h"
 #include "Llist.h"
 
-
+llist_t everyWorldObjectInTheWorldUltraSuperMegaHardcoreLinkedListOfDeathAndDoom;
 llist_t worldObjects;
+
 
 typedef enum
 {
@@ -52,6 +53,7 @@ typedef struct coodinates
 
 typedef struct object
 {
+    int map; 
     obj_type_t type;
     obj_dir_t move_dir;
     coord_t pos;
